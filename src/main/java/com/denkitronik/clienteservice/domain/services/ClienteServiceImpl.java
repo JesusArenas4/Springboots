@@ -5,6 +5,7 @@ import com.denkitronik.clienteservice.domain.exception.ClienteServiceException;
 import com.denkitronik.clienteservice.domain.entities.Cliente;
 import com.denkitronik.clienteservice.domain.entities.Region;
 import com.denkitronik.clienteservice.domain.repositories.IClienteDao;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
+@Slf4j
 @Service
 public class ClienteServiceImpl implements IClienteService {
 
@@ -44,6 +46,8 @@ public class ClienteServiceImpl implements IClienteService {
         try {
             return clienteDao.save(cliente);
         } catch (DataIntegrityViolationException ex) {
+            log.error("Causa real del fallo al guardar: {}",
+                    ex.getMostSpecificCause().getMessage());
             throw new ClienteServiceException(
                 "Error al guardar el cliente: datos duplicados o restricción violada",
                 ex

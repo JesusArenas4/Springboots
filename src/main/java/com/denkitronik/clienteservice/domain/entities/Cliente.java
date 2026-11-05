@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
-import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name = "clientes")
@@ -31,7 +31,8 @@ public class Cliente {
     private String email;
 
     @Column(name = "create_at")
-    private LocalDate createAt;
+    @Temporal(TemporalType.DATE)
+    private Date createAt;
 
     private String foto;
 
@@ -43,6 +44,6 @@ public class Cliente {
 
     @PrePersist
     public void prePersist() {
-        createAt = LocalDate.now();
+        createAt = new Date();
     }
 }
