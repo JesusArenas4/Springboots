@@ -2,6 +2,9 @@ package com.denkitronik.clienteservice.delivery.exception;
 
 import java.time.LocalDateTime;
 
+/**
+ * Cuerpo JSON uniforme para todos los errores de la API.
+ */
 public class ApiErrorResponse {
 
     private int status;

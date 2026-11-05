@@ -36,6 +36,8 @@ public interface IClienteService {
      * Actualiza los campos de un cliente existente preservando createAt.
      * @throws com.denkitronik.clienteservice.domain.exception.ClienteNotFoundException
      *         si no existe un cliente con ese ID
+     * @throws com.denkitronik.clienteservice.domain.exception.ClienteServiceException
+     *         si ocurre un error de base de datos (p. ej. email duplicado)
      */
     Cliente update(Long id, Cliente cliente);
 
