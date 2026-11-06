@@ -60,7 +60,7 @@ public class ClienteServiceImpl implements IClienteService {
         actual.setApellido(cliente.getApellido());
         actual.setEmail(cliente.getEmail());
         actual.setFoto(cliente.getFoto());
-        actual.setRegion(cliente.getRegion());
+        //actual.setRegion(cliente.getRegion());
         try {
             // saveAndFlush (en vez de save) fuerza el UPDATE aquí mismo: así una
             // violación de restricción (email duplicado) se captura en este
