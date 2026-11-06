@@ -37,10 +37,10 @@ public class Cliente {
     private String foto;
 
     // Opcional: la entidad asignada en el reto solo exige nombre, apellido, email y foto.
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "region_id")
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    private Region region;
+    //@ManyToOne(fetch = FetchType.LAZY)
+    //@JoinColumn(name = "region_id")
+    //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    //private Region region;
 
     @PrePersist
     public void prePersist() {
